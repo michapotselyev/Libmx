@@ -1,6 +1,6 @@
 #include "../inc/libmx.h"
 
-char *mx_itoa(long long num)
+char *mx_itoa(int num)
 {
     char *num_str = NULL;
 

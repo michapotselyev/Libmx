@@ -1,27 +1,18 @@
-LIBRARY = libmx.a
+all: LIBMX clean
 
-CL_FL = -std=c11 -Wall -Wextra -Werror -Wpedantic
-
-all: crt_obj libmx crt_lib
-
-crt_obj:
+LIBMX:
 	mkdir obj
-
-libmx:
-	clang $(CL_FL) -c src/*.c
-	mv *.o obj/
-
-crt_lib:
-	ar -rc $(NAME_LIB) obj/*.o
-	ranlib $(NAME_LIB)
+	cd obj && clang -std=c11 -Wall -Wextra -Werror -Wpedantic -c ../src/*.c
+	ar rcs libmx.a obj/*.o
+	ranlib libmx.a
 
 clean:
 	rm -rf obj
+	rm -rf libmx.a
 
 uninstall:
 	rm -rf obj
-	rm -rf $(NAME_LIB)
+	rm -rf libmx.a
 
-reinstall:
-	make uninstall
-	make
+reinstall: all
+
