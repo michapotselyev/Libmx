@@ -1,4 +1,4 @@
-all: LIBMX clean
+all: LIBMX clean 
 
 LIBMX:
 	mkdir obj
@@ -8,7 +8,6 @@ LIBMX:
 
 clean:
 	rm -rf obj
-	rm -rf libmx.a
 
 uninstall:
 	rm -rf obj
